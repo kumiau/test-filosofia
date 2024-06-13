@@ -15,7 +15,7 @@ class App extends Component {
       question: '',
       answerOptions: [],
       answer: '',
-      answersCount: {},
+      answersCount: 0,
       result: ''
     };
 
@@ -56,18 +56,15 @@ class App extends Component {
     this.setUserAnswer(event.currentTarget.value);
 
     if (this.state.questionId < quizQuestions.length) {
-      setTimeout(() => this.setNextQuestion(), 300);
+      setTimeout(() => this.setNextQuestion(), 100);
     } else {
-      setTimeout(() => this.setResults(this.getResults()), 300);
+      setTimeout(() => this.setResults(this.getResults()), 100);
     }
   }
 
   setUserAnswer(answer) {
     this.setState((state, props) => ({
-      answersCount: {
-        ...state.answersCount,
-        [answer]: (state.answersCount[answer] || 0) + 1
-      },
+      answersCount: answer === "1" ? state.answersCount+1 : state.answersCount,
       answer: answer
     }));
   }
@@ -87,19 +84,12 @@ class App extends Component {
 
   getResults() {
     const answersCount = this.state.answersCount;
-    const answersCountKeys = Object.keys(answersCount);
-    const answersCountValues = answersCountKeys.map(key => answersCount[key]);
-    const maxAnswerCount = Math.max.apply(null, answersCountValues);
 
-    return answersCountKeys.filter(key => answersCount[key] === maxAnswerCount);
+    return answersCount;
   }
 
   setResults(result) {
-    if (result.length === 1) {
-      this.setState({ result: result[0] });
-    } else {
-      this.setState({ result: 'Undetermined' });
-    }
+      this.setState({ result: result });
   }
 
   renderQuiz() {
@@ -123,8 +113,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>React Quiz</h2>
+          <h2>Test de Platón</h2>
         </div>
         {this.state.result ? this.renderResult() : this.renderQuiz()}
       </div>
