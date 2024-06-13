@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/test-filosofia/static/css/main.e8bb9cda.css",
+    "main.js": "/test-filosofia/static/js/main.ed7760fd.js",
+    "static/media/logo.svg": "/test-filosofia/static/media/logo.cc18e3dd6c6c6542fcd83a54f5093500.svg",
+    "index.html": "/test-filosofia/index.html",
+    "static/media/icon-check.svg": "/test-filosofia/static/media/icon-check.12ef56dba3e58d61a792.svg",
+    "main.e8bb9cda.css.map": "/test-filosofia/static/css/main.e8bb9cda.css.map",
+    "main.ed7760fd.js.map": "/test-filosofia/static/js/main.ed7760fd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e8bb9cda.css",
+    "static/js/main.ed7760fd.js"
+  ]
+}
